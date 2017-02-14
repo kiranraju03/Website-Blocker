@@ -1,0 +1,12 @@
+1.to chnage the contents of hosts file in the C drive we need exclusive permisssions as it is a sensitive file
+2.to do so we have to execute the program with administrator permissions.
+
+to make it run at system startup:-
+1.open task scheduler
+2.select create new task
+3.in general provide a name and select the option called run with highest previlages
+and select windows 7 in configure for dropdown menu
+4.next in triggers select on system startup
+5.next in action tab, select the file and make the action as start the program
+6.in conditions section,under power unselect 'start the task only if computer is on AC power'
+7.select ok and start off the task for testing. 
