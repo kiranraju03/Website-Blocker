@@ -7,7 +7,7 @@ redirect="127.0.0.1"
 website_list=["www.python.org","python.org"]
 
 while True:
-    if dt(dt.now().year,dt.now().month,dt.now().day, 20)< dt.now() < dt(dt.now().year,dt.now().month,dt.now().day, 21):
+    if dt(dt.now().year,dt.now().month,dt.now().day, 19)< dt.now() < dt(dt.now().year,dt.now().month,dt.now().day, 21):
         print("Should not access the website")
         with open(host_file,"r+") as file:
             content=file.read()
@@ -16,7 +16,14 @@ while True:
                     pass
                 else:
                     file.write(redirect+"   "+website+"\n")
-                    
+
     else:
-        print("can open links")
+        print("Can open links")
+        with open(host_file,"r+") as file:
+            content=file.readlines()
+            file.seek(0)
+            for line in content:
+                if not any(website in line for website in website_list):
+                    file.write(line)
+            file.truncate()
 time.sleep(5)
